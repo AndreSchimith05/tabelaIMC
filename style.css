@@ -1,0 +1,120 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1rem 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+body,
+main{
+    background-color: #F5F5F5;
+
+}
+#campoFormulário{
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem ;
+}
+h1{
+    font-size: 2.4rem;
+}
+label,
+button{
+    display: block;
+    /*para quebrar a linha*/
+}
+button{
+    padding: .3rem;
+    border-radius: 3px;
+    background-color: #1976D2;
+    color: #FFFFFF;
+}
+button:hover{
+    background-color: #1565C0;
+}
+input{
+    padding: .3rem;
+    border-radius: 3px;
+}
+label,
+button,
+input,
+p{
+    font-size: 1.6rem;
+}
+label,
+p{
+    color: #333333;
+}
+#resultado{
+    display: none;
+    width: 90%;
+    text-align: justify;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+h2{
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+.txtEducativo{
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  main {
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  #campoFormulário,
+  #resultado {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  #resultado {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  label,
+  input,
+  button,
+  p {
+    font-size: 1.8rem;
+  }
+}

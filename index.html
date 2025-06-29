@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora IMC</title>
+</head>
+
+<body>
+    <main>
+        <h1>Calculadora de IMC</h1>
+        <p>Índice de Massa Corporal</p>
+        <fieldset id="campoFormulário">
+
+            <label for="peso">Digite seu peso:</label>
+            <input type="number" id="peso" placeholder="Exemplo: 80">
+            <!--variavel peso-->
+
+            <label for="altura">Digite sua altura em cm:</label>
+            <input type="number" id="altura" placeholder="Exemplo '178'">
+            <!--variavel altura-->
+
+            <button onclick="calcularIMC()">
+                Calcular IMC
+            </button>
+            <!--botao para function-->
+
+        </fieldset>
+
+        <div id="resultado"></div>
+        <!--variavel resultado-->
+    </main>
+
+    <script>
+        function calcularIMC() {
+            let peso = Number(document.getElementById('peso').value);
+
+            let altura = Number(document.getElementById('altura').value)
+            //criei as duas dentro da function para que não recebam o valor vazio
+
+            let resultadoIMC = ((peso / (altura ** 2)) * 10000).toFixed(2);
+
+            if(!peso || !altura){
+                resultado.style.display = 'block';
+                //criei esse display porque estava aperecendo uma mancha na tela porque coloquei padding na div
+                resultado.innerHTML = 
+                `<h2>Por favor, digite um peso e altura válidos</h2>`
+            }
+            else if (resultadoIMC < 18.5) {
+                resultado.style.display = 'block';
+                resultado.style.color = '#D32F2F'
+                resultado.style.alignItems = 'center'
+                resultado.innerHTML =
+                    `<h2> IMC - ${resultadoIMC} - Magreza </h2>
+                <p class = txtEducativo>Texto educativo: </p>
+
+                <p>Seu IMC indica magreza. Isso pode significar baixa reserva de energia e nutrientes. </p>
+
+               <p class = txtEducativo>O que fazer: </p>
+
+                <p>Procure um nutricionista para ajustar sua alimentação. Um acompanhamento médico também é indicado. </p>
+
+                <p class = txtEducativo>Se faz academia: </p>
+
+                <p>Se treina muito e tem alimentação balanceada, talvez seja apenas sua composição corporal (muito músculo, pouca gordura). Avalie com um profissional. </p>`
+
+            }
+            else if (resultadoIMC <= 24.9) {
+                resultado.style.display = 'block';
+                resultado.style.color = '#388E3C'
+                resultado.innerHTML =
+                    `<h2> IMC - ${resultadoIMC} - Peso normal </h2>
+                 <p class = txtEducativo>Texto educativo: </p>
+
+                <p>Você está com um IMC saudável! </p>
+
+               <p class = txtEducativo>O que fazer: </p>
+
+                <p>Mantenha bons hábitos: alimentação equilibrada, sono de qualidade e prática de atividades físicas. </p>
+
+                <p class = txtEducativo>Se faz academia: </p>
+
+                <p>Ótimo! Isso ajuda a manter a saúde e a composição corporal ideal, mesmo que o peso varie um pouco. </p>`
+            }
+            else if (resultadoIMC <= 29.9) {
+                resultado.style.display = 'block';
+                resultado.style.color = '#F57C00'
+                resultado.innerHTML =
+                    `<h2> IMC - ${resultadoIMC} - Sobrepeso </h2>
+                 <p class = txtEducativo>Texto educativo: </p>
+
+                <p>Seu IMC está acima do ideal, o que pode aumentar o risco de doenças no futuro. </p>
+
+               <p class = txtEducativo>O que fazer: </p>
+
+                <p>Comece com ajustes simples: reduza o consumo de ultraprocessados, movimente-se mais e, se possível, busque ajuda profissional. </p>
+
+                <p class = txtEducativo>Se faz academia: </p>
+
+                <p>Talvez você tenha mais massa muscular. Meça gordura corporal com bioimpedância ou outro exame — o IMC pode não refletir isso bem. </p>`
+            }
+            else {
+                resultado.style.display = 'block';
+                resultado.style.color = '#D32F2F'
+                resultado.innerHTML =
+                    `<h2> IMC - ${resultadoIMC} - Obesidade </h2>
+                 <p class = txtEducativo>Texto educativo: </p>
+
+                <p>O IMC sugere obesidade, o que pode causar problemas cardíacos, diabetes e outros. </p>
+
+               <p class = txtEducativo>O que fazer: </p>
+
+                <p>Busque acompanhamento médico e nutricional. Mudanças de estilo de vida e exercícios regulares são essenciais. </p>
+
+                <p class = txtEducativo>Se faz academia: </p>
+
+                <p>Mesmo com treinos, esse IMC costuma indicar excesso de gordura. Avalie a composição corporal com exames específicos. </p>`
+            }
+        }
+    </script>
+</body>
+
+</html>
