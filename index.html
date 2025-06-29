@@ -42,7 +42,7 @@
 
             let resultadoIMC = ((peso / (altura ** 2)) * 10000).toFixed(2);
 
-            if(!peso || !altura){
+            if(peso <= 0 || altura <= 0 || isNaN(peso) || isNaN(altura)){
                 resultado.style.display = 'block';
                 //criei esse display porque estava aperecendo uma mancha na tela porque coloquei padding na div
                 resultado.innerHTML = 
