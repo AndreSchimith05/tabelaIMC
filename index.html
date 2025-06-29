@@ -19,7 +19,7 @@
             <!--variavel peso-->
 
             <label for="altura">Digite sua altura em cm:</label>
-            <input type="number" id="altura" placeholder="Exemplo '178'">
+            <input type="number" id="altura" placeholder="Exemplo '1.78'" step="any">
             <!--variavel altura-->
 
             <button onclick="calcularIMC()">
@@ -40,7 +40,8 @@
             let altura = Number(document.getElementById('altura').value)
             //criei as duas dentro da function para que não recebam o valor vazio
 
-            let resultadoIMC = ((peso / (altura ** 2)) * 10000).toFixed(2);
+            let resultadoIMC = (peso / (altura ** 2)).toFixed(2);
+            //alterei a formula para que ficasse em metros e não em cm e alterei o input com step=any
 
             if(peso <= 0 || altura <= 0 || isNaN(peso) || isNaN(altura)){
                 resultado.style.display = 'block';
